@@ -1,7 +1,10 @@
 package me.danilo.planeraktivnosti.model;
 
 import jakarta.persistence.*;
+import org.springframework.cglib.core.Local;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -9,7 +12,8 @@ import java.util.Date;
 public class Activity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private int id;
 
     @Column(name="name", length=150, nullable=false)
@@ -25,10 +29,15 @@ public class Activity {
     private boolean completed;
 
     @Column(name = "startdate")
-    private Date startDate;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    private String startDate;
 
     @Column(name = "enddate")
-    private Date endDate;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    private String endDate;
+
+    @Column(name = "userid")
+    private int UserId;
 
     public String getName() {
         return name;
@@ -54,19 +63,19 @@ public class Activity {
         this.id = id;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
@@ -84,5 +93,13 @@ public class Activity {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public int getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(int userId) {
+        UserId = userId;
     }
 }

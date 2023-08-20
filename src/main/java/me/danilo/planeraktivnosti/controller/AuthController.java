@@ -42,7 +42,7 @@ public class AuthController {
             Map<String, String> data = new HashMap<>();
 
             if(foundUserPassword.equalsIgnoreCase(password)) {
-                data.put("autentificated", "true");
+                data.put("authenticated", "true");
                 data.put("id", Integer.toString(foundUser.getId()));
 
                 JSONObject jsonResponse = new JSONObject(data);
@@ -50,12 +50,12 @@ public class AuthController {
                 return ResponseEntity.ok(jsonResponse.toString());
             }
             else {
-                data.put("autentificated", "false");
+                data.put("authenticated", "false");
                 return new ResponseEntity<>(data, HttpStatus.OK);
             }
 
         }
-        return ResponseEntity.ok(HttpStatus.OK);
+        return ResponseEntity.badRequest().body("User not found");
     }
 
     @PostMapping("/register")
