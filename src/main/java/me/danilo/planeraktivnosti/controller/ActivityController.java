@@ -32,4 +32,15 @@ public class ActivityController {
         return activityRepostitory.findActivityByUserId(userId);
     }
 
+    @PostMapping("/update")
+    public ResponseEntity<HttpStatus> updateActivity(@RequestBody Activity activity) {
+        activityRepostitory.save(activity);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @PostMapping("/delete")
+    public ResponseEntity<HttpStatus> deleteActivity(@RequestBody Activity activity) {
+        activityRepostitory.delete(activity);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
 }

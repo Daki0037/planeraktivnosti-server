@@ -37,7 +37,7 @@ public class Activity {
     private String endDate;
 
     @Column(name = "userid")
-    private int UserId;
+    private int userId;
 
     public String getName() {
         return name;
@@ -96,10 +96,10 @@ public class Activity {
     }
 
     public int getUserId() {
-        return UserId;
+        return userId;
     }
 
     public void setUserId(int userId) {
-        UserId = userId;
+        this.userId = userId;
     }
 }
