@@ -43,4 +43,5 @@ public class ActivityController {
         activityRepostitory.delete(activity);
         return ResponseEntity.ok(HttpStatus.OK);
     }
+
 }

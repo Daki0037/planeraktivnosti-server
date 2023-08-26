@@ -3,8 +3,6 @@ package me.danilo.planeraktivnosti.controller;
 import me.danilo.planeraktivnosti.model.User;
 import me.danilo.planeraktivnosti.repository.UserRepository;
 import me.danilo.planeraktivnosti.service.AuthService;
-import me.danilo.planeraktivnosti.service.UserService;
-import org.apache.coyote.Response;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
